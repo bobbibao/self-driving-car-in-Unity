@@ -3,13 +3,13 @@ In this project we have trained an evolving Neural network by using Genetic Algo
 
 Requirement: Unity version 2022.3.8f1.
 
-The simulation environment was chosen to be a forested environment.
+The simulation environment was chosen to be a forested environment:
 ![simulation environment](https://github.com/bobbibao/self-driving-car-in-Unity/assets/88239380/de20ed48-90bc-421b-820b-c55f43290dde)
 
-Initialize poppulations
+Init new population:
 ![new Population](https://github.com/bobbibao/self-driving-car-in-Unity/assets/88239380/6f0cb64a-7636-41c9-9a19-b778ba4d6521)
 
-Run
+Run game:
 ![self-driving car](https://github.com/bobbibao/self-driving-car-in-Unity/assets/88239380/39853f11-858f-4235-96b9-8ca5d046b122)
 
 
