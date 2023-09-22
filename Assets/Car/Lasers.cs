@@ -26,7 +26,6 @@ public class Lasers : MonoBehaviour {
             laser.finalLength = 0.02f;
             laser.laserColor = colorBeam;
             laser.distanceLaser = distanceLaser;
-            
             laser.transform.position = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
             
             laserObjects[i] = obj;

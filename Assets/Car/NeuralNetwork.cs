@@ -99,7 +99,7 @@ public class NeuralNetwork {
             inputLayer[i] = inputs[i];
         }
         //Update neurons from the input Layer to the output Layer
-        for(int layer =0;layer< neurons.Count-1; layer++) {
+        for(int layer =0; layer< neurons.Count-1; layer++) {
             
             float[][] weightsLayer = weights[layer];
             int nextLayer = layer + 1;
@@ -122,7 +122,7 @@ public class NeuralNetwork {
     {
         //Layer position i
         int sizeLayer = 0;
-        //Depending on the layer it will give a different size
+
         if (i == 0)
         {
             sizeLayer = inputs;

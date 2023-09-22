@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,6 @@ public class DNA {
     private List<float[][]> dna;
     private float mutationProb = 0.05f;
     private float maxVariation = 1f;
-    private float maxMutation = 5f;
 
     public DNA(List<float[][]> weights)
     {
@@ -38,7 +37,7 @@ public class DNA {
         }
         return new DNA(newDna);
     }
-    //DNA of the class (parent) + DNA parameter (parent)
+
     public DNA crossover(DNA otherParent)
     {
         List<float[][]> child = new List<float[][]>();

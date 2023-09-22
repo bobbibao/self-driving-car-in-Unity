@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class Laser : MonoBehaviour {
     private Vector3 positionLaser;
     private LineRenderer lineRenderer;
     private float distance = 0;
-    public string particleFireballMaterialPath = "Assets/Standard Assets/ParticleSystems/Materials/ParticleFireball.mat";
+    public string particleFireballMaterialPath = "./Assets/Standard Assets/ParticleSystems/Materials/ParticleFireball.mat";
 
     // Use this for initialization
 
@@ -22,37 +23,31 @@ public class Laser : MonoBehaviour {
         lineRenderer.startWidth = initialLength;
         lineRenderer.endWidth = finalLength;
         lineRenderer.positionCount = 2;
-        Material particleFireballMaterial = Resources.Load<Material>(particleFireballMaterialPath);
-
-        if (particleFireballMaterial != null)
-        {
-            // Thay đổi Material của "elements 0" trong LineRenderer
-            lineRenderer.materials[0] = particleFireballMaterial;
-        }
-        else
-        {
-            Debug.LogError("Không thể tìm thấy Material 'ParticleFireball' tại đường dẫn: " + particleFireballMaterialPath);
-        }
     }
 	
 	// Update is called once per frame
 	void Update () {
         Vector3 finalPoint = transform.position + transform.forward * distanceLaser;
         RaycastHit collisionPoint;
-        if(Physics.Raycast(transform.position,transform.forward,out collisionPoint, distanceLaser))
+        Material particleFireballMaterial = Resources.Load<Material>(particleFireballMaterialPath);
+
+        if (Physics.Raycast(transform.position,transform.forward,out collisionPoint, distanceLaser))
         {
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, collisionPoint.point);
             distance = collisionPoint.distance;
 
+            lineRenderer.materials[0] = particleFireballMaterial;
         }
         else
         {
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, finalPoint);
             distance = distanceLaser;
+ 
+            lineRenderer.materials[0] = particleFireballMaterial;
         }
-	}
+    }
     public float getDistance()
     {
    

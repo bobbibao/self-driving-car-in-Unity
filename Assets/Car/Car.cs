@@ -7,7 +7,6 @@ public class Car : MonoBehaviour {
     private NeuralNetwork network;
     private Vector3 initialPoint;
     private float distance;
-
     private bool initialized = false;
 	void Start () {
 		
@@ -31,12 +30,35 @@ public class Car : MonoBehaviour {
         if (initialized)
         {
             //Get inputs of distances lasers
+
+
             float[] inputs = GetComponent<Lasers>().getDistances();
 
-            //Execute feed-forward
+
             network.feedForward(inputs);
 
+
+
             List<float> outputs = network.getOutputs();
+
+            string inputString = "Danh sách inputs: ";
+            foreach (float input in inputs){
+                inputString += input.ToString() + ", ";
+            }
+            if (inputString.EndsWith(", ")) {
+                inputString = inputString.Remove(inputString.Length - 2);
+            }
+            Debug.Log(inputString);
+
+            string outputString = "Danh sách outputs: ";
+            foreach (float output in outputs){
+                outputString += output.ToString() + ", ";
+            }
+            if (outputString.EndsWith(", ")){
+                outputString = outputString.Remove(outputString.Length - 2);
+            }
+            Debug.Log(outputString);
+
             GetComponent<CarMov>().updateMovement(outputs);
             distance = Vector3.Distance(transform.position, initialPoint);
         }

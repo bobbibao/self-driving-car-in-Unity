@@ -10,11 +10,19 @@ public class CarControllerAI : MonoBehaviour {
     [HideInInspector]
     public DNA winner;
     public DNA secWinner;
+
+    public CarControllerAI()
+    {
+    }
+    public CarControllerAI(int carsCreated)
+    {
+        this.carsCreated = carsCreated;
+    }
+
     private int carsCreated = 0;
     // Use this for initialization
     void Start () {
         newPopulation();
-		
 	}
 	
 	// Update is called once per frame
@@ -35,13 +43,12 @@ public class CarControllerAI : MonoBehaviour {
             carObj.GetComponent<Car>().Initialize();
         }
         generation++;
-        Debug.Log(generation);
+        Debug.Log("Generation: "+ generation);
     }
     public void newPopulation(bool geneticManipulation)
     {
         if (geneticManipulation)
         {
-            Debug.Log("aa");
             cars = new List<GameObject>();
             for(int i = 0; i < population; i++)
             {
@@ -53,6 +60,7 @@ public class CarControllerAI : MonoBehaviour {
             }
         }
         generation++;
+        Debug.Log("Generation: " + generation);
         carsCreated = 0;
         GameObject.Find("Camera").GetComponent<CameraMovement>().Follow(cars[0]);
     }
@@ -60,5 +68,9 @@ public class CarControllerAI : MonoBehaviour {
     {
         cars.Clear();
         newPopulation();
+    }
+    public int getGeneration()
+    {
+        return generation;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,7 +53,7 @@ public class CameraMovement : MonoBehaviour {
             }
             Follow(cars[index]);
         }
-	}
+    }
     public void Follow(GameObject newFollow)
     {
         initialPosition = follow.transform.position;
