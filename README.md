@@ -10,7 +10,8 @@ Initialize poppulations
 ![new Population](https://github.com/bobbibao/self-driving-car-in-Unity/assets/88239380/6f0cb64a-7636-41c9-9a19-b778ba4d6521)
 
 Run
-![self-driving car](https://github.com/bobbibao/self-driving-car-in-Unity/
+![self-driving car](https://github.com/bobbibao/self-driving-car-in-Unity/assets/88239380/39853f11-858f-4235-96b9-8ca5d046b122)
+
 
 The following code is based on code from the SelfDrivingCarSimulation project by Varun Singh:
 
